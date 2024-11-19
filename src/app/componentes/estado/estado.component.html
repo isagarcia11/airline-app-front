@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estado del Estacionamiento</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 400px;
+    }
+
+    .form-container h2 {
+      margin-bottom: 20px;
+      font-weight: bold;
+      text-align: center;
+      color:#f43f5e;
+    }
+
+    .form-container pre {
+      width: 100%;
+      background-color: #f8f9fa;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 14px;
+      overflow-x: auto;
+      text-align: left;
+    }
+
+    .form-container p {
+      color: #555;
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Estado del Estacionamiento</h2>
+    <div *ngIf="estado; else loading">
+      <pre>{{ estado | json }}</pre>
+    </div>
+    <ng-template #loading>
+      <p>Cargando estado...</p>
+    </ng-template>
+  </div>
+</body>
+</html>
+

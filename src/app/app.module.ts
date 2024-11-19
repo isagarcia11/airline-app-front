@@ -7,8 +7,13 @@ import { MatCardModule } from '@angular/material/card'; // Importa MatCardModule
 import { MatFormFieldModule } from '@angular/material/form-field'; // Para formularios
 import { MatInputModule } from '@angular/material/input'; // Para inputs
 import { MatButtonModule } from '@angular/material/button'; // Para botones
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './componentes/login/login.component';
 import { RegistroComponent } from './componentes/registro/registro.component';
@@ -19,6 +24,13 @@ import { CargarVueloComponent } from './componentes/cargar-vuelo/cargar-vuelo.co
 import { ReservaVueloComponent } from './componentes/reserva-vuelo/reserva-vuelo.component';
 import { GestionarEquipajeComponent } from './componentes/gestionar-equipaje/gestionar-equipaje.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { PagoComponent } from './componentes/pago/pago.component';
+import { LlegadaComponent } from './componentes/llegada/llegada.component';
+import { SalidaComponent } from './componentes/salida/salida.component';
+import { RetirarComponent } from './componentes/retirar/retirar.component';
+import { EstadoComponent } from './componentes/estado/estado.component';
+import { MenuEmbarqueComponent } from './componentes/menu-embarque/menu-embarque.component';
+import { UsuarioMenuComponent } from './componentes/usuario-menu/usuario-menu.component';
 
 
 @NgModule({
@@ -31,7 +43,14 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     BuscarVuelosComponent,
     CargarVueloComponent,
     ReservaVueloComponent,
-    GestionarEquipajeComponent
+    GestionarEquipajeComponent,
+    PagoComponent,
+    LlegadaComponent,
+    SalidaComponent,
+    RetirarComponent,
+    EstadoComponent,
+    MenuEmbarqueComponent,
+    UsuarioMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +62,17 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
+<<<<<<< Updated upstream
     HttpClientModule 
+=======
+    HttpClientModule,
+    MatSnackBarModule,
+    MatSidenavModule,
+    MatListModule,
+    MatMenuModule,
+    MatToolbarModule
+    
+>>>>>>> Stashed changes
   ],
   providers: [
     provideClientHydration(),

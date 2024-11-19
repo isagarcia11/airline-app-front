@@ -1,0 +1,62 @@
+<mat-toolbar color="primary" class="toolbar">
+    <span class="logo">✈️ IAM Airlines</span>
+    <span class="spacer"></span>
+    <button mat-button [matMenuTriggerFor]="menu">Menú</button>
+  </mat-toolbar>
+  
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/usuario-menu">Inicio</button>
+    <button mat-menu-item routerLink="/reserva-vuelo">Reservaciones</button>
+    <button mat-menu-item routerLink="/buscar-vuelos">Busca Vuelos</button>
+    <button mat-menu-item routerLink="/gestionar-equipaje">Gestiona tu equipaje</button>
+    <button mat-menu-item routerLink="/login">Salir</button>
+  </mat-menu>
+  
+  <mat-sidenav-container class="main-container">
+    <!-- Menú lateral -->
+    <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+      <mat-nav-list>
+        <button mat-menu-item routerLink="/usuario-menu">Inicio</button>
+        <button mat-menu-item routerLink="/reserva-vuelo">Reservaciones</button>
+        <button mat-menu-item routerLink="/buscar-vuelos">Busca Vuelos</button>
+        <button mat-menu-item routerLink="/gestionar-equipaje">Gestiona tu equipaje</button>
+        <button mat-menu-item routerLink="/login">Salir</button>
+      </mat-nav-list>
+    </mat-sidenav>
+  
+    <!-- Contenido principal -->
+    <mat-sidenav-content class="content">
+      <div class="info-section">
+        <h1>✈️ Bienvenido a IAM Airlines</h1>
+        <p>
+          IAM Airlines es tu compañera en el cielo ofreciendo la mejor experiencia a bordo.
+        </p>
+  
+        <div class="highlights">
+          <div class="highlight">
+            <h3>🌍 Destino del mes</h3>
+            <p>¡Descubre Buenos Aires con un 25% de descuento en vuelos directos desde Ciudad de México!</p>
+          </div>
+  
+          <div class="highlight">
+            <h3>🛫 Promoción especial</h3>
+            <p>Acumula el doble de millas en nuestro programa AeroPlus si reservas antes del 30 de noviembre.</p>
+          </div>
+  
+          <div class="highlight">
+            <h3>✈️ Estadísticas</h3>
+            <p>
+              - 98% de puntualidad en nuestros vuelos.<br />
+              - Más de 15 millones de pasajeros felices en 2023.<br />
+              - Flota moderna con aviones de última generación.
+            </p>
+          </div>
+        </div>
+  
+        <button mat-raised-button color="primary" routerLink="/reserva-vuelo">
+          Reserva tu vuelo ahora
+        </button>
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

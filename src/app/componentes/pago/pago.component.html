@@ -1,0 +1,22 @@
+<div class="payment-container">
+  <h2>Crear Orden de Pago</h2>
+  <form [formGroup]="paymentForm" (ngSubmit)="createPayment()">
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Client ID</mat-label>
+      <input matInput formControlName="clientId" placeholder="Ingresa el ID del cliente" />
+      <mat-error *ngIf="paymentForm.get('clientId')?.invalid && paymentForm.get('clientId')?.touched">
+        Client ID es requerido
+      </mat-error>
+    </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" [disabled]="paymentForm.invalid">
+      Generar Pago
+    </button>
+  </form>
+
+  <div *ngIf="approvalUrl" class="result">
+    <p>Enlace generado:</p>
+    <a [href]="approvalUrl" target="_blank">{{ approvalUrl }}</a>
+  </div>
+</div>
+
+  
