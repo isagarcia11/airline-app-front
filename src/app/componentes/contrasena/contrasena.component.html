@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recuperar Contraseña</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: #f5f5f4;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            text-align: center;
+            font-weight: bold;
+            color: #f43f5e;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .button {
+            width: 100%;
+            padding: 10px;
+            background-color: #1d4ed8;
+            color: white;
+            border: none;
+            font-weight: bold;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Recuperar Contraseña</h2>
+        <div class="input-group">
+            <input type="email" id="correo" placeholder="Introduce tu correo electrónico" required>
+        </div>
+        <button class="button" onclick="enviarCorreo()">Enviar Código</button>
+        <div class="message" id="mensaje"></div>
+    </div>
+
+    <script>
+        function enviarCorreo() {
+            const correo = document.getElementById('correo').value;
+            const mensaje = document.getElementById('mensaje');
+
+            if (!correo) {
+                mensaje.textContent = "Por favor, ingresa un correo electrónico.";
+                mensaje.style.color = "red";
+                return;
+            }
+
+            const url = '/enviar-codigo-recuperacion';
+            const data = new URLSearchParams();
+            data.append('correo', correo);
+
+            fetch(url, {
+                method: 'POST',
+                body: data,
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    mensaje.textContent = "Código de recuperación enviado a tu correo.";
+                    mensaje.style.color = "green";
+                } else {
+                    mensaje.textContent = "Hubo un problema al enviar el código: " + data.message;
+                    mensaje.style.color = "red";
+                }
+            })
+            .catch(error => {
+                mensaje.textContent = "Error en el servidor, intenta más tarde.";
+                mensaje.style.color = "red";
+            });
+        }
+    </script>
+</body>
+</html>
+

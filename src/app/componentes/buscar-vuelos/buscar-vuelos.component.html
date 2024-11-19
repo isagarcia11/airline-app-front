@@ -1,0 +1,57 @@
+<div class="container">
+    <h2>Buscar Vuelos</h2>
+  
+    <form (ngSubmit)="buscarVuelos()">
+      <label for="modalidadVuelo">Modalidad de Vuelo</label>
+      <select [(ngModel)]="modalidadVuelo" name="modalidadVuelo">
+        <option *ngFor="let modalidad of modalidadVueloEnum" [value]="modalidad">{{ modalidad }}</option>
+      </select>
+  
+      <label for="origen">Origen</label>
+      <select [(ngModel)]="origen" name="origen">
+        <option *ngFor="let lugar of lugaresEnum" [value]="lugar">{{ lugar }}</option>
+      </select>
+  
+      <label for="destino">Destino</label>
+      <select [(ngModel)]="destino" name="destino">
+        <option *ngFor="let lugar of lugaresEnum" [value]="lugar">{{ lugar }}</option>
+      </select>
+  
+      <label for="tipoClase">Tipo de Clase</label>
+      <select [(ngModel)]="tipoClase" name="tipoClase">
+        <option *ngFor="let clase of tipoClaseEnum" [value]="clase">{{ clase }}</option>
+      </select>
+  
+      <label for="tipoRuta">Tipo de Ruta</label>
+      <select [(ngModel)]="tipoRuta" name="tipoRuta">
+        <option *ngFor="let ruta of tipoRutaEnum" [value]="ruta">{{ ruta }}</option>
+      </select>
+  
+      <button type="submit" [disabled]="isLoading">Buscar</button>
+    </form>
+  
+    <div *ngIf="isLoading">Cargando...</div>
+    <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+  
+    <div *ngIf="vuelos.length > 0">
+      <h3>Resultados de la Búsqueda de Vuelo de {{ busquedaDTO.origen }} a {{ busquedaDTO.destino }}</h3>
+      <ul>
+        <li *ngFor="let vuelo of vuelos">
+          <div>
+            <h4>Vuelo de {{ busquedaDTO.origen }} a {{ busquedaDTO.destino }}</h4>
+
+            <p><strong>Clase:</strong> {{ busquedaDTO.tipoClase }} | <strong>Ruta:</strong> {{ busquedaDTO.tipoRuta }}</p>
+  
+            <h5>Pasajeros:</h5>
+            <ul>
+              <li *ngFor="let pasajero of vuelo.pasajeros">
+                <p>{{ pasajero.nombre }} {{ pasajero.apellido }} ({{ pasajero.correo }})</p>
+                
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

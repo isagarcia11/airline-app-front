@@ -1,0 +1,40 @@
+.container {
+    max-width: 600px;
+    align-items: center;
+  }
+
+  h2{
+    font-weight: bold;
+    text-align: center;
+    color: #f43f5e;
+    margin-bottom: 20px;
+    margin-top: 20px;
+  }
+
+  label{
+    font-weight: bold;
+    color:#fda4af;
+  }
+  
+  .card {
+    border-radius: 15px;
+    overflow: hidden;
+    align-items: center;
+  }
+  
+  .card-header {
+    text-align: center;
+  }
+  
+  .list-group-item {
+    font-size: 1.1rem;
+  }
+  
+  button {
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #1d4ed8;
+    cursor: pointer;
+    
+  }
+  

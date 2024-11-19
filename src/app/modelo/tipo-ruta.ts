@@ -1,0 +1,4 @@
+export enum TipoRuta {
+    NACIONAL = 'NACIONAL',
+  INTERNACIONAL = 'INTERNACIONAL'
+}

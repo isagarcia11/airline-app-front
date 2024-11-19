@@ -1,0 +1,74 @@
+<div class="equipaje-container">
+    <h2>Gestionar Equipaje</h2>
+    <form [formGroup]="equipajeForm" (ngSubmit)="onSubmit()">
+      <mat-card>
+        <h3>Equipaje Facturado</h3>
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Peso Pieza 1</mat-label>
+            <input matInput type="number" formControlName="pesoPiezaUno" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Peso Pieza 2</mat-label>
+            <input matInput type="number" formControlName="pesoPiezaDos" />
+          </mat-form-field>
+        </div>
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Alto Pieza 1</mat-label>
+            <input matInput type="number" formControlName="altoPiezaUno" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Ancho Pieza 1</mat-label>
+            <input matInput type="number" formControlName="anchoPiezaUno" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Largo Pieza 1</mat-label>
+            <input matInput type="number" formControlName="largoPiezaUno" />
+          </mat-form-field>
+        </div>
+      </mat-card>
+  
+      <mat-card>
+        <h3>Equipaje de Mano</h3>
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Peso</mat-label>
+            <input matInput type="number" formControlName="pesoEquipajeMano" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Alto</mat-label>
+            <input matInput type="number" formControlName="altoEquipajeMano" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Ancho</mat-label>
+            <input matInput type="number" formControlName="anchoEquipajeMano" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Largo</mat-label>
+            <input matInput type="number" formControlName="largoEquipajeMano" />
+          </mat-form-field>
+        </div>
+      </mat-card>
+  
+      <mat-card>
+        <h3>Equipaje Adicional y Mascota</h3>
+        <div class="form-row">
+          <mat-form-field appearance="fill">
+            <mat-label>Peso Equipaje Adicional</mat-label>
+            <input matInput type="number" formControlName="pesoEquipajeAdicional" />
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Peso Mascota</mat-label>
+            <input matInput type="number" formControlName="pesoMascota" />
+          </mat-form-field>
+        </div>
+      </mat-card>
+  
+      <div class="form-actions">
+        <button mat-raised-button color="primary" type="submit" [disabled]="equipajeForm.invalid">Enviar</button>
+        <button mat-raised-button color="warn" type="button" (click)="onReset()">Resetear</button>
+      </div>
+    </form>
+  </div>
+  

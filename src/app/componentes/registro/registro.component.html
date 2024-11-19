@@ -1,0 +1,97 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-6">
+        <div class="card shadow-sm border-0">
+          <div class="card-body p-4">
+            <h3 class="text-center mb-4">Registro de Cliente</h3>
+            <form [formGroup]="registroForm" (ngSubmit)="registrarCliente()">
+              <div class="mb-3">
+                <label for="identificacion" class="form-label">Identificación</label>
+                <input
+                  type="text"
+                  id="identificacion"
+                  formControlName="identificacion"
+                  class="form-control"
+                  placeholder="Ingrese su identificación"
+                />
+              </div>
+  
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Nombre</label>
+                <input
+                  type="text"
+                  id="nombre"
+                  formControlName="nombre"
+                  class="form-control"
+                  placeholder="Ingrese su nombre"
+                />
+              </div>
+  
+              <div class="mb-3">
+                <label for="apellido" class="form-label">Apellido</label>
+                <input
+                  type="text"
+                  id="apellido"
+                  formControlName="apellido"
+                  class="form-control"
+                  placeholder="Ingrese su apellido"
+                />
+              </div>
+  
+              <div class="mb-3">
+                <label for="direccion" class="form-label">Dirección</label>
+                <input
+                  type="text"
+                  id="direccion"
+                  formControlName="direccion"
+                  class="form-control"
+                  placeholder="Ingrese su dirección"
+                />
+              </div>
+  
+              <div class="mb-3">
+                <label for="correo" class="form-label">Correo Electrónico</label>
+                <input
+                  type="email"
+                  id="correo"
+                  formControlName="correo"
+                  class="form-control"
+                  placeholder="Ingrese su correo electrónico"
+                />
+              </div>
+  
+              <div class="mb-3">
+                <label for="contrasena" class="form-label">Contraseña</label>
+                <input
+                  type="password"
+                  id="contrasena"
+                  formControlName="contrasena"
+                  class="form-control"
+                  placeholder="Ingrese su contraseña"
+                />
+              </div>
+  
+              <div class="mb-3">
+                <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+                <input
+                  type="date"
+                  id="fechaNacimiento"
+                  formControlName="fechaNacimiento"
+                  class="form-control"
+                />
+              </div>
+  
+              <button type="submit" class="btn btn-primary w-100 py-2" [disabled]="registroForm.invalid">
+                Registrar
+              </button>
+            </form>
+  
+            <div *ngIf="mensaje" class="alert alert-info mt-3">
+              {{ mensaje }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

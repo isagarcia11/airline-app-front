@@ -1,0 +1,31 @@
+<div class="container">
+    <h2>Cargar Vuelo</h2>
+  
+    <div class="form-group">
+      <label for="vueloId">ID del Vuelo:</label>
+      <input
+        type="text"
+        id="vueloId"
+        [(ngModel)]="vueloId"
+        class="form-control"
+        placeholder="Ingresa el ID del vuelo"
+      />
+    </div>
+  
+</div>
+<div class="d-flex justify-content-center mt-3">
+  <button (click)="cargarVuelo()" class="btn btn-primary">
+    Buscar Vuelo
+  </button>
+
+  
+    <div *ngIf="vuelo" class="mt-4">
+      <h4>Información del Vuelo:</h4>
+      <pre>{{ vuelo | json }}</pre>
+    </div>
+  
+    <div *ngIf="errorMessage" class="alert alert-danger mt-4">
+      {{ errorMessage }}
+    </div>
+  </div>
+  

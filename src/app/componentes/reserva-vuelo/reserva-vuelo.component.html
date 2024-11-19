@@ -1,0 +1,34 @@
+<!-- components/reserva-vuelo/reserva-vuelo.component.html -->
+<div class="container">
+    <h2>Reservar Vuelo</h2>
+    <form [formGroup]="reservaForm" (ngSubmit)="reservarVuelo()">
+      <div>
+        <label for="vueloId">ID del Vuelo:</label>
+        <input id="vueloId" formControlName="vueloId" />
+      </div>
+      <div>
+        <label for="clientId">ID del Cliente:</label>
+        <input id="clientId" formControlName="clientId" />
+      </div>
+      <div>
+        <label for="tipoClase">Tipo de Clase:</label>
+        <select id="tipoClase" formControlName="tipoClase">
+          <option value="ECONOMICA">Económica</option>
+          <option value="BUSINESS">Business</option>
+        </select>
+      </div>
+      <div>
+        <label for="cantidadPasajeros">Cantidad de Pasajeros:</label>
+        <input id="cantidadPasajeros" type="number" formControlName="cantidadPasajeros" />
+      </div>
+      <button type="submit" [disabled]="reservaForm.invalid">Reservar</button>
+    </form>
+  
+    <div *ngIf="resultado" class="resultado">
+      <p>{{ resultado }}</p>
+    </div>
+    <div *ngIf="error" class="error">
+      <p>{{ error }}</p>
+    </div>
+  </div>
+  
