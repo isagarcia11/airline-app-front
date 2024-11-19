@@ -3,10 +3,10 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
-import { MatCardModule } from '@angular/material/card'; // Importa MatCardModule
-import { MatFormFieldModule } from '@angular/material/form-field'; // Para formularios
-import { MatInputModule } from '@angular/material/input'; // Para inputs
-import { MatButtonModule } from '@angular/material/button'; // Para botones
+import { MatCardModule } from '@angular/material/card'; 
+import { MatFormFieldModule } from '@angular/material/form-field'; 
+import { MatInputModule } from '@angular/material/input'; 
+import { MatButtonModule } from '@angular/material/button'; 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
