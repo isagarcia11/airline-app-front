@@ -62,17 +62,13 @@ import { UsuarioMenuComponent } from './componentes/usuario-menu/usuario-menu.co
     MatFormFieldModule,
     MatInputModule,
     BrowserAnimationsModule,
-<<<<<<< Updated upstream
-    HttpClientModule 
-=======
-    HttpClientModule,
+    HttpClientModule ,
     MatSnackBarModule,
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
     MatToolbarModule
     
->>>>>>> Stashed changes
   ],
   providers: [
     provideClientHydration(),
