@@ -23,7 +23,7 @@ export class LoginComponent implements OnInit {
     contrasena: ['', [Validators.required, Validators.minLength(6)]],
   });
   }
-  login() {
+  public login() {
     if (this.loginForm.valid) {
       const { correo, contrasena } = this.loginForm.value;
       this.authService.login(correo, contrasena).subscribe({
