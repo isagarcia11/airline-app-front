@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../../servicios/auth.service';
 import { Router } from '@angular/router';
 import { LoginDTO } from '../../dtos/login-dto';
+  
+
 
 @Component({
   selector: 'app-login',
@@ -30,20 +32,40 @@ export class LoginComponent implements OnInit {
   }
 
   public login() {
-    const loginDTO: LoginDTO = {
-      correo: this.correo,
-      contrasena: this.contrasena,
-    };
 
+    this.successMessage = null;
+    this.errorMessage = null;
+
+    const correo = this.loginForm.get('correo')?.value;
+    const contrasena = this.loginForm.get('contrasena')?.value;
+  
+    console.log("Correo enviado al backend: ", correo); // Log para verificar el valor del correo
+  
+    const loginDTO: LoginDTO = {
+      correo: correo,
+      contrasena: contrasena,
+    };
+  
     this.authService.login(loginDTO).subscribe(
       (response) => {
-        this.mensaje = `Inicio de sesión exitoso: ${response}`;
-        console.log(response); // Maneja la respuesta según tus necesidades
+        // Verifica que la respuesta tenga el campo mensaje
+        console.log('Respuesta del backend:', response);
+  
+        if (response.mensaje) {
+          this.successMessage = response.mensaje; // Asignar el mensaje de éxito
+        } else {
+          this.errorMessage = 'Error inesperado. No se recibió mensaje.';
+        }
+        console.log(this.successMessage);
+        this.router.navigate(['/usuario-menu']); // Redirige a la página correspondiente
       },
       (error) => {
-        this.mensaje = `Error al iniciar sesión: ${error.error}`;
-        console.error(error); // Maneja el error
+        console.error('Error en la solicitud:', error);
+        this.errorMessage = error.error.error || 'Error al iniciar sesión'; 
       }
     );
   }
+  
+  
+  
 }

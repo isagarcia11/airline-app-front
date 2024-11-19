@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { RegistrarClienteDTO } from '../dtos/registrar-cliente-dto';
 import { LoginDTO } from '../dtos/login-dto';
+import { LoginResponse } from '../modelo/login-response';
 
 @Injectable({
   providedIn: 'root',
@@ -12,11 +13,11 @@ export class AuthService {
 
   constructor(private http: HttpClient) {}
 
-  login(loginDTO: LoginDTO): Observable<string> {
+  login(loginDTO: LoginDTO): Observable<LoginResponse> {
     const url = `${this.apiUrl}/login`;
     const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
 
-    return this.http.post<string>(url, loginDTO, { headers });
+    return this.http.post<LoginResponse>(url, loginDTO, { headers });
   }
 
   registrarCliente(cliente: RegistrarClienteDTO): Observable<string> {
