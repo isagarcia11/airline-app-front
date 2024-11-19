@@ -28,14 +28,21 @@ export class RegistroComponent {
     if (this.registroForm.valid) {
       const cliente: RegistrarClienteDTO = this.registroForm.value;
       this.authService.registrarCliente(cliente).subscribe({
-        next: (respuesta) => {
-          this.mensaje = `Registro exitoso: ${respuesta}`;
+        next: (respuesta: any) => {
+          console.log('Respuesta del backend:', respuesta);
+          this.mensaje = respuesta.mensaje || 'Registro exitoso';
           this.registroForm.reset();
         },
         error: (error) => {
-          this.mensaje = `Error al registrar: ${error.error}`;
+          console.error('Error recibido:', error);
+          if (error.error && typeof error.error === 'object' && error.error.error) {
+            this.mensaje = `Error al registrar: ${error.error.error}`;
+          } else {
+            this.mensaje = 'Ocurrió un error inesperado. Por favor, inténtalo más tarde.';
+          }
         },
       });
     }
   }
+  
 }
