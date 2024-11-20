@@ -32,6 +32,9 @@
   
     <div *ngIf="isLoading">Cargando...</div>
     <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+    <!-- Mostrar mensaje de error -->
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
   
     <div *ngIf="vuelos.length > 0">
       <h3>Resultados de la Búsqueda de Vuelo de {{ busquedaDTO.origen }} a {{ busquedaDTO.destino }}</h3>
